@@ -1,0 +1,71 @@
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #1f2937, #111827); /* Dark gradient background */
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  }
+  
+  /* When navbar is active (responsive or toggled) */
+  .navbar.active {
+    background: linear-gradient(135deg, #374151, #1f2937);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Nav links */
+  .nav-link {
+    position: relative;
+    color: #d1d5db; /* Zinc-300 text color */
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 10px 15px;
+    margin: 0 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.4s ease, transform 0.3s ease;
+  }
+  
+  /* Hover and focus state for links */
+  .nav-link:hover,
+  .nav-link:focus {
+    color: #60a5fa; /* Sky-400 on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+  }
+  
+  /* Active link styling */
+  .nav-link.active {
+    color: #3b82f6; /* Sky-500 for active links */
+    text-shadow: 0 3px 10px rgba(59, 130, 246, 0.5); /* Active link glow */
+  }
+  
+  /* Active box animation */
+  .active-box {
+    position: absolute;
+    background-color: #3b82f6; /* Sky-500 for active box */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(59, 130, 246, 0.5); /* Glow effect for active box */
+    transition: all 0.4s ease-in-out; /* Smooth transition */
+    z-index: -1; /* Behind the nav links */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      padding: 15px;
+    }
+  
+    .nav-link {
+      margin-bottom: 15px;
+    }
+  
+    .nav-link:last-child {
+      margin-bottom: 0;
+    }
+  }
+  

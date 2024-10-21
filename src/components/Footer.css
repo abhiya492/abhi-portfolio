@@ -1,0 +1,111 @@
+/* Footer section styling */
+.footer-section {
+    background-color: #202021; /* Zinc-600 */
+    padding: 4rem 0; /* Padding for top and bottom */
+    color: #f9fafb; /* Light color for text (gray-50) */
+  }
+  
+  /* Container for overall layout */
+  .footer-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; /* Responsive padding */
+  }
+  
+  /* Typography for footer heading */
+  .footer-section h2 {
+    font-size: 1.875rem; /* Matches text-3xl */
+    font-weight: 800; /* Matches font-extrabold */
+    color: #ffffff; /* White for better contrast */
+    margin-bottom: 1rem; /* Spacing below heading */
+  }
+  
+  /* Footer description paragraph */
+  .footer-section p {
+    color: #d1d5db; /* Light gray text (gray-400) */
+    font-size: 1rem;
+    margin-bottom: 1.5rem; /* Space between paragraph and social links */
+  }
+  
+  /* Social and sitemap links */
+  .footer-section a {
+    color: #d1d5db; /* Gray-400 for normal state */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth hover transition */
+  }
+  
+  /* Hover effect for social and sitemap links */
+  .footer-section a:hover {
+    color: #60a5fa; /* Light blue (blue-400) on hover */
+  }
+  
+  /* Sitemap (footer navigation) */
+  .footer-nav ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem; /* Space between sitemap links */
+  }
+  
+  /* Individual sitemap links */
+  .footer-nav a {
+    font-size: 1rem;
+    color: #d1d5db; /* Gray-400 */
+    transition: color 0.3s ease; /* Smooth hover transition */
+  }
+  
+  /* Hover effect for sitemap links */
+  .footer-nav a:hover {
+    color: #60a5fa; /* Light blue on hover */
+  }
+  
+  /* Responsive grid layout */
+  .footer-section .grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 1.5rem; /* Space between grid items */
+  }
+  
+  @media (min-width: 768px) {
+    .footer-section .grid {
+      grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens and up */
+    }
+  }
+  
+  /* Social links styling */
+  .footer-section .flex {
+    display: flex;
+    gap: 1.5rem; /* Adjust space between social icons */
+  }
+  
+  .footer-section .w-8 {
+    font-size: 1rem;
+    display: inline-block;
+    color: #d1d5db; /* Gray-400 for icons */
+    text-align: center;
+    line-height: 2rem; /* Vertically center the text */
+    width: 2rem; /* Fixed width */
+    height: 2rem; /* Fixed height */
+    border-radius: 50%; /* Make the shape circular */
+    background-color: #52525b; /* Zinc-500 for background */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Hover effect for social icons */
+  .footer-section .w-8:hover {
+    background-color: #60a5fa; /* Light blue on hover */
+    color: #ffffff; /* White text on hover */
+  }
+  
+  /* Responsive footer text alignment */
+  .footer-section p, .footer-section h2 {
+    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-section p, .footer-section h2 {
+      text-align: left;
+    }
+  }
+  

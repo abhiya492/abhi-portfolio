@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/*------------------------------------*\
+* BASE
+\*------------------------------------*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+
+    @apply bg-zinc-900 text-zinc-50
+}
+
+.headline-1 ,
+.headline-2 {
+  @apply max-w-max;
+  background: -webkit-linear-gradient(0deg,#fafafa,
+  #a1a1aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.headline-1 {
+  @apply text-4xl leading-tight font-semibold lg:text-[55px]
+  lg:leading-[1.15];
+}
+
+.headline-2 {
+  @apply text-3xl lg:text-4xl lg:leading-tight font-semibold lg:text-[45px]
+  lg:leading-[1.15];
+}
+
+.title-1 {
+  @apply text-[22px] font-normal;
+}
+
+
+.material-symbols-rounded{
+  @apply w-[1em] h-[1em] overflow-hidden;
+  font-variation-settings: "FILL" 0,"wght", 400,"GRAD" 0,"opsz" 24;
+}
+
+
+.container {
+  @apply px-4 mx-auto lg:px-8 xl:max-w-6xl;
+}
+
+.img-box{
+  @apply bg-zinc-800 overflow-hidden;
+}
+
+.img-cover {
+  @apply object-cover w-full h-full;
+}
+
+.section {
+  @apply pt-[6.5rem] lg:pt-[8.5rem];
+} 
+/*------------------------------------*\
+* COMPONENTS
+* Menu btn */
+
+.menu-btn {  
+  @apply w-10 h-10 grid place-items-center bg-zinc-50/10  
+  rounded-xl ring-inset ring-1 ring-zinc-50/[0.02]  
+  backdrop-blur-2xl hover:bg-zinc-50/20 transition-[transform,background-color] 
+  active:scale-95;
+}
+
+
+.navbar {
+  @apply absolute top-full mt-2 right-0 min-w-40 p-2 bg-zinc-50/10 rounded-2xl ring-1 ring-zinc-50/5 scale-90 isolate blur-sm opacity-0 invisible transition-[transform,opacity,filter] 
+  md:static md:flex md:justify-center md:mt-0 md:opacity-100 md:blur-0
+  md:visible md:scale-100 md:backdrop-blur-2xl;
+}
+
+.navbar.active {
+  @apply scale-100 opacity-100 blur-0 visible
+}
+
+.nav-link {
+  @apply grid items-center h-9 px-4 text-sm font-medium tracking-wider
+  text-zinc-50/50 hover:text-zinc-50 transition-colors
+}
+
+.nav-link.active {
+  @apply text-zinc-500 duration-500
+}
+
+.navbar .active-box{
+  @apply absolute bg-zinc-50
+  rounded-lg -z-10 transition-[top,left] duration-500
+}
+
+
+
+.btn {
+  @apply px-4 py-2 text-sm font-medium tracking-wider text-zinc-50/50
+  bg-zinc-50/10 rounded-lg ring-1 ring-zinc-50/5
+  hover:bg-zinc-50/20 hover:text-zinc-50
+  transition-colors
+}
+
+.btn-secondary {
+  @apply bg-zinc-50 text-zinc-900 active:bg-zinc-50/80
+}
+
+.btn .material-symbols-rounded {
+  @apply text-[18px]
+}
+
+.btn:has(.material-symbols-rounded) {
+  @apply pr-2
+}
+
+.btn-primary {
+  @apply h-11 bg-sky-500 text-zinc-50 hover:bg-sky-300
+  active:bg-sky-700
+}
+
+.btn-outline {
+  @apply bg-transparent text-zinc-50/50 ring-1 ring-zinc-50/5
+  hover:bg-zinc-50/20 hover:text-zinc-50
+}

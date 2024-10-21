@@ -1,0 +1,56 @@
+/* Custom styles for About section */
+
+/* Logo Hover Effect */
+.logo-hover-effect {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .logo-hover-effect:hover {
+    transform: scale(1.15) rotate(10deg);
+  }
+  
+  /* Background Gradient Animation */
+  @keyframes backgroundGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  /* Custom Shadow */
+  .custom-shadow {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .custom-shadow:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Animating Number Counter */
+  .animate-number {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .about-number:hover .animate-number {
+    transform: scale(1.2);
+  }
+  
+  /* General Styling */
+  .section {
+    background: linear-gradient(135deg, #1f2937, #111827);
+    background-size: 300% 300%;
+    animation: backgroundGradient 8s ease infinite;
+  }
+  
+  .about-number p {
+    transition: color 0.3s ease;
+  }
+  
+  .about-number:hover p {
+    color: #38bdf8; /* Sky-400 */
+  }
+  
