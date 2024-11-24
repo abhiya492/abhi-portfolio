@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 const aboutItems = [
     {
       label: 'Projects Done',
-      number: 45
+      number: 6
     },
     {
       label: 'Years of Experience',
@@ -38,7 +38,7 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="bg-zinc-800/60 p-8 rounded-xl shadow-lg md:p-12 custom-shadow">
           <p className="text-zinc-300 mb-6 text-lg leading-relaxed md:mb-10 md:text-xl md:max-w-[60ch]">
-            I am a passionate full-stack developer with expertise in JavaScript, React, Node.js, and MongoDB. I thrive on tackling new challenges and enjoy collaborating with others on exciting projects...
+            I am a passionate full-stack developer with expertise in DevOps, React, Node.js, and MongoDB. I thrive on tackling new challenges and enjoy collaborating with others on exciting projects...
           </p>
           <div className="flex flex-wrap items-center gap-6 md:gap-8">
             {aboutItems.map(({ label }, key) => (

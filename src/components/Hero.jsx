@@ -38,10 +38,18 @@ const Hero = () => {
                 Building Scalable Modern Websites for the Future
                 </h2>
                 <div className="flex items-center gap-3">
-                    <ButtonPrimary
-                         label="Download Resume"
-                         icon="download"                    
-                    />
+                <ButtonPrimary
+                    label="Download Resume"
+                    icon="download"
+                    onClick={() => {
+                        const link = document.createElement('a');
+                        link.href = '/images/Resume.pdf'; // URL to your file
+                        link.download = 'ABHISHEK_Resume.pdf'; // Desired name for the downloaded file
+                        link.click();
+                    }}
+                />
+
+
 
                     <ButtonOutLine
                         href="#about"

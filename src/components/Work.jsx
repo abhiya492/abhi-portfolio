@@ -3,39 +3,27 @@ import ProjectCard from './ProjectCard';
 const works = [  
     {  
     imgSrc: '/images/project-1.jpg',  
-    title: 'Full Stack Music App',  
-    tags: ['API', 'MVC', 'Development'],  
-    projectLink: 'https://musify-5al0.onrender.com/'  
-    },  
+    title: 'PingPanda-Notification-sever',  
+    tags: ['API', 'SaaS', 'Development'],  
+    projectLink: 'https://github.com/abhiya492/jstack'  
+    }, 
     {  
     imgSrc: '/images/project-2.jpg',  
-    title: 'Free Stock Photo App',  
-    tags: ['API', 'SPA'],  
-    projectLink: 'https://pixstock-official.vercel.app/'  
-    },  
-    {  
-    imgSrc: '/images/project-3.jpg',  
-    title: 'Recipe App',  
-    tags: ['Development', 'API'],  
-    projectLink: '#'  
-    },  
+    title: 'Transform Videos into Blog Posts with Ease',  
+    tags: ['API', 'SaaS', 'Development'],  
+    projectLink: 'https://github.com/abhiya492/motion-ai'  
+    },   
     {  
     imgSrc: '/images/project-4.jpg',  
     title: 'Real Estate Website',  
     tags: ['Web-design', 'Development'],  
-    projectLink: 'https://github.com/codewithsadee-org/wealthome'  
-    },  
-    {  
-    imgSrc: '/images/project-5.jpg',  
-    title: 'eCommerce Website',  
-    tags: ['eCommerce', 'Development'],  
-    projectLink: 'https://github.com/codewithsadee/anon-ecommerce-website'  
+    projectLink: 'https://github.com/abhiya492/real-estate'  
     },  
     {  
     imgSrc: '/images/project-6.jpg',  
-    title: 'vCard Personal Portfolio',  
+    title: 'Personal Portfolio',  
     tags: ['Web-design', 'Development'],  
-    projectLink: 'https://github.com/codewithsadee/vcard-personal-portfolio'  
+    projectLink: 'https://github.com/abhiya492/portfolio'  
     },  
    ];  
    
