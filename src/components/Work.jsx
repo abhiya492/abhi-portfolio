@@ -12,15 +12,9 @@ const works = [
     title: 'Transform Videos into Blog Posts with Ease',  
     tags: ['API', 'SaaS', 'Development'],  
     projectLink: 'https://github.com/abhiya492/motion-ai'  
-    },   
-    {  
-    imgSrc: '/images/project-4.jpg',  
-    title: 'Real Estate Website',  
-    tags: ['Web-design', 'Development'],  
-    projectLink: 'https://github.com/abhiya492/real-estate'  
     },  
     {  
-    imgSrc: '/images/project-6.jpg',  
+    imgSrc: '/images/project-3.jpg',  
     title: 'Personal Portfolio',  
     tags: ['Web-design', 'Development'],  
     projectLink: 'https://github.com/abhiya492/portfolio'  
