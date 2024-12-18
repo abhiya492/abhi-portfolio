@@ -17,7 +17,7 @@ const works = [
     imgSrc: '/images/project-4.jpg',  
     title: 'Realtime Chat App',  
     tags: ['React.js', 'Socket.io', 'Development'],  
-    projectLink: 'https://github.com/abhiya492/Chat-app-complete'  
+    projectLink: 'https://chat-app-complete.onrender.com/'  
     },
     {  
     imgSrc: '/images/project-3.jpg',  
