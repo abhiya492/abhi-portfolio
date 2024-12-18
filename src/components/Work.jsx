@@ -14,6 +14,12 @@ const works = [
     projectLink: 'https://github.com/abhiya492/motion-ai'  
     },  
     {  
+    imgSrc: '/images/project-4.jpg',  
+    title: 'Realtime Chat App',  
+    tags: ['React.js', 'Socket.io', 'Development'],  
+    projectLink: 'https://github.com/abhiya492/Chat-app-complete'  
+    },
+    {  
     imgSrc: '/images/project-3.jpg',  
     title: 'Personal Portfolio',  
     tags: ['Web-design', 'Development'],  
