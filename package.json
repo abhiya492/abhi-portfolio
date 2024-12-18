@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "vite preview", // Added start command for Render
+    "start": "vite preview",
     "lint": "eslint .",
     "preview": "vite preview"
   },
