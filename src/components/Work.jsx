@@ -20,6 +20,12 @@ const works = [
     projectLink: 'https://chat-app-complete.onrender.com/'  
     },
     {  
+    imgSrc: '/images/project-5.jpg',  
+    title: 'Ticket Marketplace SAAS App',  
+    tags: ['Convex', 'Stripe Connect', 'Clerk','Tailwind','TS'],  
+    projectLink: 'https://ticket-saas-abhi.netlify.app/'  
+    },
+    {  
     imgSrc: '/images/project-3.jpg',  
     title: 'Personal Portfolio',  
     tags: ['Web-design', 'Development'],  
