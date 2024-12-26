@@ -26,7 +26,7 @@ const works = [
     projectLink: 'https://ticket-saas-abhi.netlify.app/'  
     },
     {  
-    imgSrc: '/images/project-3.jpg',  
+    imgSrc: '/images/project-3.3.png',  
     title: 'Personal Portfolio',  
     tags: ['Web-design', 'Development'],  
     projectLink: 'https://github.com/abhiya492/portfolio'  
