@@ -99,4 +99,4 @@ Have questions or suggestions? Reach out to me:
 
 ---
 
-![Portfolio Screenshot](public/images/portfolio-screenshot.png)
+![Portfolio Screenshot](public/images/project-6.jpg)
