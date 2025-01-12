@@ -1,4 +1,3 @@
-//import React from 'react'
 import { ButtonPrimary, ButtonOutLine } from "./Button";
 
 const Hero = () => {
@@ -43,7 +42,7 @@ const Hero = () => {
                     icon="download"
                     onClick={() => {
                         const link = document.createElement('a');
-                        link.href = '/images/Resume.pdf'; // URL to your file
+                        link.href = 'https://docs.google.com/document/d/1Om59JyokxBo0uJF5_baebvJiTh5RcgckZyNHGT6Ligs/edit?tab=t.0'; // URL to your file
                         link.download = 'ABHISHEK_Resume.pdf'; // Desired name for the downloaded file
                         link.click();
                     }}
