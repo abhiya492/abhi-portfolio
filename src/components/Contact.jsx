@@ -1,5 +1,5 @@
 import './Contact.css';
-
+import { useState } from 'react';
 
 const socialLinks = [
     {
@@ -25,9 +25,7 @@ const socialLinks = [
     },
   ];
 
-
-
-  const Contact = () => {
+const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = (event) => {
