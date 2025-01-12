@@ -28,6 +28,19 @@ const socialLinks = [
 
 
   const Contact = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setIsSubmitting(true);
+
+        // Simulate form submission
+        setTimeout(() => {
+            setIsSubmitting(false);
+            alert('Form submitted successfully!');
+        }, 2000);
+    };
+
     return (
         <section id="contact" className="contact-section py-16">
             <div className="container mx-auto px-4">
@@ -54,7 +67,7 @@ const socialLinks = [
                             ))}
                         </div>
                     </div>
-                    <form action="https://getform.io/f/bdryooyb" method="post" className="contact-form">
+                    <form onSubmit={handleSubmit} className="contact-form">
                         <div className="mb-4">
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                                 Name
@@ -95,9 +108,9 @@ const socialLinks = [
                                 className="text-field"
                             />
                         </div>
-                        <button type="submit" className="btn">
+                        <button type="submit" className="btn" disabled={isSubmitting}>
                             Send Message
-                            <span className="loader"></span> {/* Loader can be conditionally displayed */}
+                            {isSubmitting && <span className="loader"></span>}
                         </button>
                     </form>
                 </div>
@@ -107,4 +120,3 @@ const socialLinks = [
 }
 
 export default Contact;
-
