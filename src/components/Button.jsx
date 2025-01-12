@@ -1,3 +1,4 @@
+//import React from 'react';
 import PropTypes from 'prop-types';
 
 const ButtonPrimary = ({
@@ -56,7 +57,7 @@ const ButtonOutLine = ({
             <a 
                 href={href}
                 target={target}
-                className={`btn btn-outline ${classes}`} // Use template literals for class names
+                className={`btn btn-primary ${classes}`} // Use template literals for class names
             >
                 {label}
                 {icon && (
@@ -68,7 +69,7 @@ const ButtonOutLine = ({
         );
     } else {
         return (
-            <button className={`btn btn-outline ${classes}`}>
+            <button className={`btn btn-primary ${classes}`}>
                 {label}
                 {icon && (
                     <span className="material-symbols-rounded" aria-hidden="true">
