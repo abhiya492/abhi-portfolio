@@ -6,6 +6,61 @@ import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 const fontCache = new Map();
 const textureCache = new Map();
 
+// Create fallback textures
+const createFallbackTexture = (type = 'noise') => {
+  const canvas = document.createElement('canvas');
+  canvas.width = 256;
+  canvas.height = 256;
+  const ctx = canvas.getContext('2d');
+  
+  if (type === 'noise') {
+    // Create noise texture
+    for (let y = 0; y < canvas.height; y++) {
+      for (let x = 0; x < canvas.width; x++) {
+        const value = Math.floor(Math.random() * 255);
+        ctx.fillStyle = `rgb(${value},${value},${value})`;
+        ctx.fillRect(x, y, 1, 1);
+      }
+    }
+  } else if (type === 'particle') {
+    // Create particle texture (a simple circle)
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 4, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Add glow effect
+    const gradient = ctx.createRadialGradient(
+      canvas.width / 2, canvas.height / 2, 0,
+      canvas.width / 2, canvas.height / 2, canvas.width / 2
+    );
+    gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+    gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.5)');
+    gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, 0, Math.PI * 2);
+    ctx.fill();
+  } else {
+    // Default plain texture
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+  
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.needsUpdate = true;
+  return texture;
+};
+
+// Create fallback textures for common types
+const fallbackTextures = {
+  noise: createFallbackTexture('noise'),
+  particle: createFallbackTexture('particle'),
+  default: createFallbackTexture('default')
+};
+
 /**
  * Load a JSON font for use with Text3D
  * @param {string} url - URL of the font JSON file
@@ -26,7 +81,11 @@ export const loadFont = (url) => {
         resolve(font);
       },
       undefined, // onProgress not used
-      (error) => reject(new Error(`Error loading font ${url}: ${error.message}`))
+      (error) => {
+        console.warn(`Error loading font ${url}: ${error.message}. Using system font as fallback.`);
+        // Resolve with null to handle fallback in the component
+        resolve(null);
+      }
     );
   });
 };
@@ -34,29 +93,72 @@ export const loadFont = (url) => {
 /**
  * Load a texture
  * @param {string} url - URL of the texture image
+ * @param {string} fallbackType - Type of fallback texture to use if loading fails ('noise', 'particle', or 'default')
  * @returns {Promise<Texture>} - Loaded texture
  */
-export const loadTexture = (url) => {
+export const loadTexture = (url, fallbackType = 'default') => {
   // Use cache if available
   if (textureCache.has(url)) {
     return Promise.resolve(textureCache.get(url));
   }
   
-  return new Promise((resolve, reject) => {
-    const loader = new THREE.TextureLoader();
-    loader.load(
-      url,
-      (texture) => {
-        // Set texture properties for better quality
-        texture.needsUpdate = true;
-        
-        // Store in cache
-        textureCache.set(url, texture);
-        resolve(texture);
-      },
-      undefined, // onProgress not used
-      (error) => reject(new Error(`Error loading texture ${url}: ${error.message}`))
-    );
+  return new Promise((resolve) => {
+    // Determine fallback texture type from URL if not specified
+    if (!fallbackType || fallbackType === 'default') {
+      if (url.includes('noise')) fallbackType = 'noise';
+      else if (url.includes('particle')) fallbackType = 'particle';
+    }
+    
+    // Get appropriate fallback texture ready
+    const fallback = fallbackTextures[fallbackType] || fallbackTextures.default;
+    
+    // Skip attempt to load if URL is empty or obviously invalid
+    if (!url || url === 'undefined' || url === 'null') {
+      console.warn('Invalid texture URL. Using fallback texture.');
+      textureCache.set(url, fallback);
+      return resolve(fallback);
+    }
+    
+    // Try to load the actual texture
+    try {
+      const loader = new THREE.TextureLoader();
+      
+      // Set a timeout to prevent hanging forever on texture load
+      const timeoutId = setTimeout(() => {
+        console.warn(`Texture load timeout for ${url}. Using fallback texture.`);
+        textureCache.set(url, fallback);
+        resolve(fallback);
+      }, 5000); // 5 second timeout
+      
+      loader.load(
+        url,
+        (texture) => {
+          // Cancel timeout
+          clearTimeout(timeoutId);
+          
+          // Set texture properties for better quality
+          texture.needsUpdate = true;
+          
+          // Store in cache
+          textureCache.set(url, texture);
+          resolve(texture);
+        },
+        undefined, // onProgress not used
+        (error) => {
+          // Cancel timeout
+          clearTimeout(timeoutId);
+          
+          console.warn(`Error loading texture ${url}: ${error.message}. Using fallback texture.`);
+          // Use appropriate fallback texture
+          textureCache.set(url, fallback); // Cache the fallback to avoid repeated warnings
+          resolve(fallback);
+        }
+      );
+    } catch (error) {
+      console.error(`Exception while loading texture ${url}: ${error}. Using fallback texture.`);
+      textureCache.set(url, fallback);
+      resolve(fallback);
+    }
   });
 };
 
@@ -131,6 +233,12 @@ export const randomColor = (minBrightness = 0.4) => {
  * @returns {THREE.BufferGeometry} - The text geometry
  */
 export const createTextGeometry = (text, font, options = {}) => {
+  if (!font) {
+    console.warn('Font not available for creating text geometry');
+    // Return a simple plane geometry as fallback
+    return new THREE.PlaneGeometry(text.length * 0.5, 1);
+  }
+  
   const defaultOptions = {
     size: 0.5,
     height: 0.1,
@@ -143,10 +251,17 @@ export const createTextGeometry = (text, font, options = {}) => {
   };
   
   const mergedOptions = { ...defaultOptions, ...options };
-  return new TextGeometry(text, {
-    font,
-    ...mergedOptions
-  });
+  
+  try {
+    return new TextGeometry(text, {
+      font,
+      ...mergedOptions
+    });
+  } catch (error) {
+    console.warn(`Error creating text geometry: ${error.message}`);
+    // Return a simple plane geometry as fallback
+    return new THREE.PlaneGeometry(text.length * 0.5, 1);
+  }
 };
 
 /**
@@ -172,6 +287,11 @@ export const createTextMaterial = (options = {}) => {
  * @returns {Object} - Object containing scene, camera, renderer and other utilities
  */
 export const setupBasicScene = (container, options = {}) => {
+  if (!container) {
+    console.error('Container element is undefined');
+    return null;
+  }
+  
   // Create scene
   const scene = new THREE.Scene();
   
@@ -198,7 +318,7 @@ export const setupBasicScene = (container, options = {}) => {
   const renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true,
-    ...options.renderer
+    ...(options.renderer || {})
   });
   
   renderer.setSize(container.clientWidth, container.clientHeight);
@@ -275,6 +395,11 @@ export const createGlowMaterial = (options = {}) => {
   };
   
   const mergedOptions = { ...defaultOptions, ...options };
+  
+  // Ensure all color values are valid
+  if (typeof mergedOptions.color === 'undefined') mergedOptions.color = 0x4285F4;
+  if (typeof mergedOptions.emissive === 'undefined') mergedOptions.emissive = mergedOptions.color;
+  
   return new THREE.MeshStandardMaterial(mergedOptions);
 };
 
@@ -283,6 +408,11 @@ export const createGlowMaterial = (options = {}) => {
  * @param {THREE.Scene} scene - The scene to add lights to
  */
 export const addStandardLighting = (scene) => {
+  if (!scene) {
+    console.error('Scene is undefined');
+    return {};
+  }
+  
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
   scene.add(ambientLight);
   
@@ -303,4 +433,4 @@ export const addStandardLighting = (scene) => {
   scene.add(directionalLight);
   
   return { ambientLight, directionalLight };
-}; 
+};

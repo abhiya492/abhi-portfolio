@@ -127,7 +127,7 @@ const Navbar = ({ toggle3D, setToggle3D }) => {
             
             {/* Resume Button */}
             <a 
-              href="https://drive.google.com/file/d/1m1TjIE0A5E7cz6LfCk6AYR_Bz5GRmDvx/view?usp=sharing" 
+              href="https://drive.google.com/file/d/1tHcx3HzrpOuAFNx80VYDT9zoVkIydrtq/view?usp=sharing" 
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white text-sm px-4 py-2 rounded-md transition-all duration-300 transform hover:scale-105 flex items-center"

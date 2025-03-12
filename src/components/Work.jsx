@@ -11,7 +11,7 @@ const projects = [
     id: 1,
     title: 'Real-time Chat Application',
     description: 'A scalable chat application with real-time messaging, user authentication, and room management features.',
-    image: '/images/project-1.jpg',
+    image: '/images/project-4.jpg',
     tags: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Redux'],
     demoLink: 'https://chat-app-demo.netlify.app/',
     githubLink: 'https://github.com/abhiya492/chat-app',
@@ -22,7 +22,7 @@ const projects = [
     id: 2,
     title: 'Ticketing Marketplace SaaS',
     description: 'Full-stack marketplace for buying and selling event tickets with secure payment processing via Stripe.',
-    image: '/images/project-2.jpg',
+    image: '/images/project-5.jpg.png',
     tags: ['Next.js', 'Express', 'PostgreSQL', 'Stripe', 'TypeScript'],
     demoLink: 'https://ticket-marketplace.vercel.app/',
     githubLink: 'https://github.com/abhiya492/ticket-marketplace',
@@ -44,11 +44,22 @@ const projects = [
     id: 4,
     title: 'AWS Implementation Guides',
     description: 'Comprehensive implementation guides for AWS services, including step-by-step tutorials and best practices.',
-    image: '/images/project-4.jpg',
+    image: '/images/project-6.jpg',
     tags: ['AWS', 'DevOps', 'Infrastructure', 'Documentation'],
-    demoLink: 'https://aws-guides.netlify.app/',
-    githubLink: 'https://github.com/abhiya492/aws-guides',
+    demoLink: 'https://hashnode.com/@abhishek9123',
+    githubLink: 'https://hashnode.com/@abhishek9123',
     category: 'DevOps',
+    featured: false
+  },
+  {
+    id: 5,
+    title: 'Transform Videos into Blog Posts with Ease',
+    description: ' Transform your videos into engaging blog posts instantly using the power of AI! This full-stack SaaS application leverages cutting-edge technologies to provide a seamless video-to-blog conversion experience..',
+    image: '/images/project-2.jpg',
+    tags: ['Next.js 14 ', 'Clerk', 'NeonDb','TailwindCSS + ShadCN UI' ,'UploadThing' , 'Stripe' ,'OpenAI API' ,'TypeScript' , 'Documentation'],
+    demoLink: 'https://github.com/abhiya492/motion-ai',
+    githubLink: 'https://github.com/abhiya492/motion-ai',
+    category: 'SaaS',
     featured: false
   }
 ];
@@ -186,7 +197,7 @@ const Work = ({ toggle3D }) => {
             </svg>
             Visit My GitHub
           </a>
-        </div>
+    </div>  
     </div>  
     </section>  
     );  

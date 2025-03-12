@@ -1,3 +1,487 @@
-Place texture files here:
-- noise.jpg (a noise/grain texture)
-- particle.png (a small circular gradient for particle effects) 
+THREE.Font: character "P" does not exists in font family Inter. Error Component Stack
+    
+    at Text3D.js:18:9
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+performWorkUntilDeadline @ scheduler.development.js:533
+hook.js:608 THREE.Font: character "O" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "R" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "T" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+performWorkUntilDeadline @ scheduler.development.js:533
+hook.js:608 THREE.Font: character "F" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+overrideMethod @ hook.js:608
+hook.js:608 THREE.Font: character "O" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "L" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "I" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "O" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "F" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "U" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+2hook.js:608 THREE.Font: character "L" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character " " does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "S" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "T" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "A" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "C" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "K" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character " " does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "D" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "E" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "L" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "O" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "P" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "E" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 THREE.Font: character "R" does not exists in font family Inter. Error Component Stack
+    at renamedTextGeometry (<anonymous>)
+    at mesh (<anonymous>)
+    at Text3D.js:18:9
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at Float.js:6:3
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+9[Violation] 'requestAnimationFrame' handler took <N>ms
+2hook.js:608 No font available in ThreeContext for AnimatedText. Using fallback text. Error Component Stack
+    at AnimatedText (HeroScene.jsx:21:25)
+    at group (<anonymous>)
+    at group (<anonymous>)
+    at withAnimated.tsx:31:25
+    at PresentationControls (PresentationControls.js:9:3)
+    at Suspense (<anonymous>)
+    at Suspense (<anonymous>)
+    at ErrorBoundary (events-776716bd.esm.js:403:5)
+    at FiberProvider (index.tsx:94:14)
+    at Provider (events-776716bd.esm.js:2056:3)
+hook.js:608 Error loading avatar texture: Event {isTrusted: true, type: 'error', target: img, currentTarget: img, eventPhase: 2, …}
+3f5f9d78-4cea-495a-8607-95110d07d8bd:10 Failure loading font http://localhost:5173/fonts/Inter-Medium.woff (anonymous) @ ThreeProvider.jsx:131
+setTimeout
+(anonymous) @ ThreeProvider.jsx:128

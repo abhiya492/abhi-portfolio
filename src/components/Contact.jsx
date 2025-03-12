@@ -249,12 +249,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400 mb-1">Email</p>
-                  <a 
-                    href="mailto:singh.421.aspabhiya@gmail.com" 
-                    className="text-white hover:text-blue-400 transition-colors duration-300"
-                  >
-                    singh.421.aspabhiya@gmail.com
-                  </a>
+                  <p className="text-white">singh.421.aspabhiya@gmail.com</p>
                 </div>
               </div>
               

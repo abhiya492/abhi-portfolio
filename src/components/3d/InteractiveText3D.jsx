@@ -1,339 +1,293 @@
-import { useRef, useState, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Text3D, Center, Float, PresentationControls, useMatcapTexture } from '@react-three/drei';
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-unknown-property */
+import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
+import { Text, useFont } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 import { useThreeContext } from './ThreeProvider';
 
-// Text component with material and animations
-const AnimatedText = ({ 
-  text, 
-  font, 
-  size = 1, 
-  depth = 0.2, 
-  curveSegments = 5,
-  bevelEnabled = true,
-  bevelThickness = 0.05,
-  bevelSize = 0.02,
-  bevelOffset = 0,
-  bevelSegments = 4,
-  height = 'auto',
-  color = '#4285F4',
-  secondary = '#34A853',
-  matcapIndex = 21,
-  hoverMatcapIndex = 24,
-  letterSpacing = 0,
-  lineHeight = 1,
-  glisten = true,
-  floatIntensity = 0.5,
-  floatSpeed = 1.5
+const InteractiveText3D = ({
+  text = "Hello World",
+  type = "single", // 'single', 'words', 'characters'
+  height = "100%",
+  size = 1,
+  color = "#4285F4",
+  secondary = "#FBBC05",
+  enableControls = false,
+  showCursor = false,
+  wordsPerLine = 3
 }) => {
-  const [hovered, setHovered] = useState(false);
-  const [primary] = useMatcapTexture(matcapIndex, 1024);
-  const [hover] = useMatcapTexture(hoverMatcapIndex, 1024);
   const groupRef = useRef();
-  const materialRef = useRef();
-  const textRef = useRef();
-  
-  // Add subtle animation to text
-  useFrame(({ clock }) => {
-    if (groupRef.current) {
-      if (glisten && materialRef.current) {
-        // Shift the matcap texture to create a glistening effect
-        const t = clock.getElapsedTime() * 0.5;
-        materialRef.current.normalScale.set(
-          1 + Math.sin(t) * 0.2,
-          1 + Math.cos(t * 0.7) * 0.2
-        );
-      }
-      
-      // Update the hover effect
-      if (materialRef.current) {
-        if (hovered) {
-          materialRef.current.matcap = hover;
-        } else {
-          materialRef.current.matcap = primary;
-        }
-      }
-    }
-  });
-  
-  return (
-    <Float 
-      rotationIntensity={hovered ? floatIntensity * 1.5 : floatIntensity} 
-      floatIntensity={hovered ? floatIntensity * 1.5 : floatIntensity}
-      speed={floatSpeed}
-    >
-      <group 
-        ref={groupRef}
-        onPointerOver={() => setHovered(true)} 
-        onPointerOut={() => setHovered(false)}
-      >
-        <Center>
-          <Text3D
-            ref={textRef}
-            font={font}
-            size={size}
-            height={depth}
-            curveSegments={curveSegments}
-            bevelEnabled={bevelEnabled}
-            bevelThickness={bevelThickness}
-            bevelSize={bevelSize}
-            bevelOffset={bevelOffset}
-            bevelSegments={bevelSegments}
-            letterSpacing={letterSpacing}
-            lineHeight={lineHeight}
-          >
-            {text}
-            <meshMatcapMaterial 
-              ref={materialRef} 
-              matcap={primary} 
-              color={hovered ? secondary : color}
-            />
-          </Text3D>
-        </Center>
-      </group>
-    </Float>
-  );
-};
-
-// Individual words that can be animated separately
-const AnimatedWords = ({ 
-  text, 
-  font, 
-  wordsPerLine = 1,
-  size = 1, 
-  spacing = 0.5,
-  verticalSpacing = 1.2,
-  ...props 
-}) => {
-  // Split text into words
-  const words = text.split(' ');
-  const lines = [];
-  
-  // Group words into lines based on wordsPerLine
-  for (let i = 0; i < words.length; i += wordsPerLine) {
-    lines.push(words.slice(i, i + wordsPerLine).join(' '));
-  }
-  
-  return (
-    <group>
-      {lines.map((line, lineIndex) => (
-        <group key={lineIndex} position={[0, -lineIndex * size * verticalSpacing, 0]}>
-          {line.split(' ').map((word, wordIndex) => {
-            // Calculate position for each word
-            const wordWidth = word.length * size * 0.5; // Approximate width
-            const lineWidth = line.length * size * 0.5;
-            const startX = -lineWidth / 2;
-            const previousWordsWidth = line.split(' ')
-              .slice(0, wordIndex)
-              .join(' ').length * size * 0.5;
-              
-            const spacingWidth = wordIndex * spacing * size;
-            const x = startX + previousWordsWidth + spacingWidth;
-            
-            return (
-              <group key={`${lineIndex}-${wordIndex}`} position={[x, 0, 0]}>
-                <AnimatedText 
-                  text={word} 
-                  font={font}
-                  size={size}
-                  {...props}
-                />
-              </group>
-            );
-          })}
-        </group>
-      ))}
-    </group>
-  );
-};
-
-// Custom cursor effect
-const Cursor = ({ size = 0.5 }) => {
-  const { camera } = useThree();
-  const cursorRef = useRef();
-  const [mousePosition, setMousePosition] = useState(new THREE.Vector3(0, 0, 0));
-  const raycaster = new THREE.Raycaster();
-  const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
-  
-  useFrame(() => {
-    if (cursorRef.current) {
-      // Smoothly move the cursor toward the target position
-      cursorRef.current.position.lerp(mousePosition, 0.1);
-      
-      // Add subtle animation
-      const time = Date.now() * 0.001;
-      cursorRef.current.scale.set(
-        size * (1 + 0.1 * Math.sin(time * 2)),
-        size * (1 + 0.1 * Math.sin(time * 2)),
-        size * (1 + 0.1 * Math.sin(time * 2))
-      );
-    }
-  });
-  
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      // Convert mouse position to normalized device coordinates
-      const mouse = new THREE.Vector2(
-        (event.clientX / window.innerWidth) * 2 - 1,
-        -(event.clientY / window.innerHeight) * 2 + 1
-      );
-      
-      // Set up raycaster using camera and mouse position
-      raycaster.setFromCamera(mouse, camera);
-      
-      // Calculate intersection with the plane
-      const intersection = new THREE.Vector3();
-      raycaster.ray.intersectPlane(plane, intersection);
-      
-      // Update cursor position
-      setMousePosition(intersection);
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [camera]);
-  
-  return (
-    <mesh ref={cursorRef} position={[0, 0, 0]}>
-      <sphereGeometry args={[0.05, 16, 16]} />
-      <meshBasicMaterial color="#ffffff" transparent opacity={0.6} />
-    </mesh>
-  );
-};
-
-// Main component
-const InteractiveText3D = ({ 
-  text, 
-  type = 'single', // 'single', 'words', or 'characters'
-  color = '#4285F4',
-  secondary = '#34A853',
-  height = 250,
-  size = 0.5,
-  matcapIndex = 21,
-  hoverMatcapIndex = 24,
-  showCursor = true,
-  letterSpacing = 0,
-  lineHeight = 1,
-  wordsPerLine = 1,
-  enableControls = true,
-  backgroundColor = 'transparent',
-  className = '',
-  style = {}
-}) => {
+  const [words, setWords] = useState([]);
+  const [hovered, setHovered] = useState(null);
+  const [cursorIndex, setCursorIndex] = useState(0);
+  const [cursorVisible, setCursorVisible] = useState(true);
+  const [useFallback, setUseFallback] = useState(false);
+  const [useHtmlFallback, setUseHtmlFallback] = useState(false);
   const { fonts } = useThreeContext() || { fonts: {} };
   
-  // Create style for container
-  const containerStyle = {
-    height: typeof height === 'number' ? `${height}px` : height,
-    backgroundColor,
-    ...style
+  // Check if we need to use fallback
+  useEffect(() => {
+    if (!fonts || !fonts.defaultFont) {
+      console.warn("No font available in ThreeContext. Using fallback text rendering.");
+      setUseFallback(true);
+    }
+  }, [fonts]);
+  
+  // Initialize text based on type
+  useEffect(() => {
+    switch(type) {
+      case 'words':
+        setWords(text.split(' ').map((word, index) => ({
+          text: word,
+          position: calculateWordPosition(index),
+          originalY: 0
+        })));
+        break;
+      case 'characters':
+        setWords(text.split('').map((char, index) => ({
+          text: char,
+          position: [index * 0.5 - (text.length * 0.25), 0, 0],
+          originalY: 0
+        })));
+        break;
+      case 'single':
+      default:
+        setWords([{
+          text: text,
+          position: [0, 0, 0],
+          originalY: 0
+        }]);
+    }
+  }, [text, type, wordsPerLine]);
+  
+  // Calculate position for words layout
+  function calculateWordPosition(index) {
+    const row = Math.floor(index / wordsPerLine);
+    const col = index % wordsPerLine;
+    return [
+      (col - wordsPerLine / 2 + 0.5) * 1.2, 
+      -row * 1.2, 
+      0
+    ];
+  }
+  
+  // Handle font errors
+  const handleFontError = () => {
+    console.warn("Failed to load web font for 3D text. Using HTML fallback.");
+    setUseHtmlFallback(true);
   };
   
-  // If fonts are not loaded yet, show loading message
-  if (!fonts || !fonts['defaultFont']) {
+  // Handle cursor blinking effect
+  useEffect(() => {
+    if (!showCursor) return;
+    
+    const interval = setInterval(() => {
+      setCursorVisible(prev => !prev);
+    }, 530);
+    
+    return () => clearInterval(interval);
+  }, [showCursor]);
+  
+  // Animation loop
+  useFrame((state, delta) => {
+    // Don't animate if using HTML fallback
+    if (useHtmlFallback) return;
+    
+    // Animate each word/character
+    if (groupRef.current) {
+      try {
+        groupRef.current.children.forEach((child, index) => {
+          // Skip cursor element
+          if (child.name === 'cursor') return;
+          
+          if (index === hovered) {
+            // Hovered element animation
+            child.position.y = words[index]?.originalY + Math.sin(state.clock.elapsedTime * 2) * 0.1;
+            child.rotation.y = Math.sin(state.clock.elapsedTime * 2) * 0.1;
+            
+            // This is safe because we're checking material type first
+            if (child.material && 
+                (child.material instanceof THREE.MeshBasicMaterial || 
+                 child.material.color)) {
+              try {
+                child.material.color.set(secondary);
+              } catch (e) {
+                // Ignore color setting errors
+              }
+            }
+          } else {
+            // Reset non-hovered elements
+            if (words[index]) {
+              child.position.y = words[index].originalY;
+              child.rotation.y = Math.sin(state.clock.elapsedTime) * 0.05;
+            }
+            
+            // This is safe because we're checking material type first
+            if (child.material && 
+                (child.material instanceof THREE.MeshBasicMaterial || 
+                 child.material.color)) {
+              try {
+                child.material.color.set(color);
+              } catch (e) {
+                // Ignore color setting errors
+              }
+            }
+          }
+        });
+        
+        // Cursor animation
+        const cursor = groupRef.current.children.find(child => child.name === 'cursor');
+        if (cursor && words[cursorIndex]) {
+          // Calculate cursor position
+          if (type === 'single') {
+            // Place cursor at the end of text
+            const lastWordLength = words[0].text.length * 0.4 * size;
+            cursor.position.set(lastWordLength / 2, 0, 0);
+          } else {
+            // Position cursor next to current word
+            const currentWord = groupRef.current.children[cursorIndex];
+            if (currentWord && currentWord.geometry && currentWord.geometry.boundingBox) {
+              const wordWidth = currentWord.geometry.boundingBox.max.x - currentWord.geometry.boundingBox.min.x;
+              cursor.position.set(
+                words[cursorIndex].position[0] + wordWidth / 2 + 0.1,
+                words[cursorIndex].position[1],
+                0
+              );
+            } else if (words[cursorIndex]) {
+              // Fallback if geometry isn't available
+              cursor.position.set(
+                words[cursorIndex].position[0] + 0.5,
+                words[cursorIndex].position[1],
+                0
+              );
+            }
+          }
+        }
+      } catch (error) {
+        console.warn("Animation error in InteractiveText3D:", error);
+      }
+    }
+  });
+  
+  // Complete HTML fallback
+  if (useHtmlFallback) {
+    const containerStyle = {
+      width: '100%',
+      height: typeof height === 'number' ? `${height}px` : height,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: color,
+      fontFamily: 'Arial, sans-serif'
+    };
+    
     return (
-      <div 
-        className={`text-center flex items-center justify-center ${className}`}
-        style={containerStyle}
-      >
-        <div className="text-blue-500">Loading 3D Text...</div>
+      <div style={containerStyle}>
+        {type === 'single' ? (
+          <div 
+            style={{ 
+              fontSize: `${size * 2}rem`, 
+              fontWeight: 'bold',
+              color: hovered === 0 ? secondary : color,
+              cursor: 'pointer'
+            }}
+            onMouseEnter={() => setHovered(0)}
+            onMouseLeave={() => setHovered(null)}
+          >
+            {text}
+          </div>
+        ) : (
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px' }}>
+            {words.map((word, index) => (
+              <div
+                key={index}
+                style={{
+                  fontSize: `${size * 1.5}rem`,
+                  fontWeight: 'bold',
+                  color: hovered === index ? secondary : color,
+                  cursor: 'pointer',
+                  transform: hovered === index ? 'translateY(-5px)' : 'none',
+                  transition: 'transform 0.3s, color 0.3s'
+                }}
+                onMouseEnter={() => setHovered(index)}
+                onMouseLeave={() => setHovered(null)}
+              >
+                {word.text}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     );
   }
   
-  return (
-    <div 
-      className={`relative overflow-hidden ${className}`} 
-      style={containerStyle}
-    >
-      <Canvas 
-        dpr={[1, 2]} 
-        camera={{ position: [0, 0, 5], fov: 45 }}
-      >
-        {enableControls ? (
-          <PresentationControls
-            global
-            config={{ mass: 2, tension: 400 }}
-            snap={{ mass: 4, tension: 300 }}
-            rotation={[0, 0, 0]}
-            polar={[-Math.PI / 8, Math.PI / 8]}
-            azimuth={[-Math.PI / 4, Math.PI / 4]}
+  // Render fallback 2D text if 3D is not available
+  if (useFallback) {
+    return (
+      <group ref={groupRef}>
+        {words.map((word, index) => (
+          <Text
+            key={index}
+            color={color}
+            fontSize={size}
+            position={word.position}
+            onPointerOver={() => enableControls && setHovered(index)}
+            onPointerOut={() => enableControls && setHovered(null)}
+            onClick={() => enableControls && setCursorIndex(index)}
+            font="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZFhjA.woff2"
+            anchorX="center"
+            anchorY="middle"
+            maxWidth={10}
+            textAlign="center"
+            onError={handleFontError}
           >
-            {type === 'single' && (
-              <AnimatedText 
-                text={text}
-                font={fonts['defaultFont']}
-                size={size}
-                color={color}
-                secondary={secondary}
-                matcapIndex={matcapIndex}
-                hoverMatcapIndex={hoverMatcapIndex}
-                letterSpacing={letterSpacing}
-                lineHeight={lineHeight}
-              />
-            )}
-            
-            {type === 'words' && (
-              <AnimatedWords 
-                text={text}
-                font={fonts['defaultFont']}
-                size={size}
-                color={color}
-                secondary={secondary}
-                matcapIndex={matcapIndex}
-                hoverMatcapIndex={hoverMatcapIndex}
-                letterSpacing={letterSpacing}
-                lineHeight={lineHeight}
-                wordsPerLine={wordsPerLine}
-              />
-            )}
-          </PresentationControls>
-        ) : (
-          <>
-            {type === 'single' && (
-              <AnimatedText 
-                text={text}
-                font={fonts['defaultFont']}
-                size={size}
-                color={color}
-                secondary={secondary}
-                matcapIndex={matcapIndex}
-                hoverMatcapIndex={hoverMatcapIndex}
-                letterSpacing={letterSpacing}
-                lineHeight={lineHeight}
-              />
-            )}
-            
-            {type === 'words' && (
-              <AnimatedWords 
-                text={text}
-                font={fonts['defaultFont']}
-                size={size}
-                color={color}
-                secondary={secondary}
-                matcapIndex={matcapIndex}
-                hoverMatcapIndex={hoverMatcapIndex}
-                letterSpacing={letterSpacing}
-                lineHeight={lineHeight}
-                wordsPerLine={wordsPerLine}
-              />
-            )}
-          </>
+            {word.text}
+          </Text>
+        ))}
+        
+        {showCursor && cursorVisible && (
+          <mesh name="cursor" position={[0, 0, 0]}>
+            <planeGeometry args={[0.1, size * 1.2]} />
+            <meshBasicMaterial color={secondary} />
+          </mesh>
         )}
-        
-        {/* Lighting */}
-        <ambientLight intensity={0.7} />
-        <pointLight position={[10, 10, 10]} intensity={0.5} />
-        
-        {/* Interactive cursor */}
-        {showCursor && <Cursor />}
-      </Canvas>
-    </div>
+      </group>
+    );
+  }
+  
+  return (
+    <group ref={groupRef}>
+      {words.map((word, index) => (
+        <Text
+          key={index}
+          color={color}
+          fontSize={size}
+          position={word.position}
+          onPointerOver={() => enableControls && setHovered(index)}
+          onPointerOut={() => enableControls && setHovered(null)}
+          onClick={() => enableControls && setCursorIndex(index)}
+          font="https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2"
+          anchorX="center"
+          anchorY="middle"
+          maxWidth={10}
+          textAlign="center"
+          onError={handleFontError}
+        >
+          {word.text}
+        </Text>
+      ))}
+      
+      {showCursor && cursorVisible && (
+        <mesh name="cursor" position={[0, 0, 0]}>
+          <planeGeometry args={[0.1, size * 1.2]} />
+          <meshBasicMaterial color={secondary} />
+        </mesh>
+      )}
+    </group>
   );
 };
 
-export default InteractiveText3D; 
+export default InteractiveText3D;
