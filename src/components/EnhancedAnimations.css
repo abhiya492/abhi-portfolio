@@ -1,0 +1,248 @@
+/* Enhanced Animations and Visual Effects */
+
+/* Enhanced scrollbar with interactive effects */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b2b2b;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary, #3b82f6);
+}
+
+/* Enhanced smooth scrolling */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* Improved background noise pattern */
+.enhanced-bg-noise {
+  position: relative;
+}
+
+.enhanced-bg-noise::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: -1;
+}
+
+/* Enhanced grid pattern */
+.enhanced-grid-pattern {
+  position: relative;
+}
+
+.enhanced-grid-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+/* Enhanced glass morphism effect */
+.enhanced-glass {
+  background: rgba(15, 15, 15, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.enhanced-glass:hover {
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px);
+}
+
+/* Enhanced card shadow with glow effect */
+.enhanced-card-shadow {
+  box-shadow: 
+    0 10px 30px -10px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.enhanced-card-shadow:hover {
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(59, 130, 246, 0.2),
+    0 0 20px 2px rgba(59, 130, 246, 0.1);
+}
+
+/* Enhanced text gradient with animation */
+.enhanced-text-gradient {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: enhanced-gradient-shift 8s infinite linear;
+}
+
+@keyframes enhanced-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Enhanced pill tags with hover effects */
+.enhanced-pill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  transition: all 0.3s ease;
+}
+
+.enhanced-pill:hover {
+  background-color: rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(59, 130, 246, 0.1);
+}
+
+/* Enhanced animations for shimmer effects */
+@keyframes enhanced-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.enhanced-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.enhanced-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-100%);
+  animation: enhanced-shimmer 2s infinite;
+}
+
+/* New animation for section transitions */
+@keyframes enhanced-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.enhanced-fade-up {
+  animation: enhanced-fade-up 0.8s ease forwards;
+}
+
+/* Enhanced button hover effect */
+.enhanced-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.enhanced-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-100%) rotate(45deg);
+  transition: transform 0.5s ease;
+}
+
+.enhanced-button:hover::before {
+  transform: translateX(100%) rotate(45deg);
+}
+
+.enhanced-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Floating animation */
+@keyframes enhanced-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.enhanced-float {
+  animation: enhanced-float 5s ease-in-out infinite;
+}
+
+/* Pulse animation for emphasis */
+@keyframes enhanced-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.enhanced-pulse {
+  animation: enhanced-pulse 2s ease-in-out infinite;
+}
+
+/* Improved selection style */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+/* Improved focus styles for better accessibility */
+.enhanced-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+} 

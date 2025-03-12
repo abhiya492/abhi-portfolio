@@ -1,0 +1,3 @@
+Place texture files here:
+- noise.jpg (a noise/grain texture)
+- particle.png (a small circular gradient for particle effects) 

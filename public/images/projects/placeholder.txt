@@ -1,0 +1,7 @@
+Place project images here:
+- portfolio.jpg
+- ecommerce.jpg
+- chat.jpg
+- blockchain.jpg
+
+These should be high-quality images of your projects for the 3D project cards. 

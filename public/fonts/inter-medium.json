@@ -1,0 +1,27 @@
+{
+  "glyphs": {},
+  "familyName": "Inter",
+  "ascender": 800,
+  "descender": -200,
+  "underlinePosition": -100,
+  "underlineThickness": 50,
+  "boundingBox": {
+    "xMin": 0,
+    "xMax": 0,
+    "yMin": 0,
+    "yMax": 0
+  },
+  "resolution": 1000,
+  "original_font_information": {
+    "format": 0,
+    "copyright": "Placeholder",
+    "fontFamily": "Inter",
+    "fontSubfamily": "Medium",
+    "uniqueID": "Placeholder",
+    "fullName": "Inter Medium",
+    "version": "Placeholder",
+    "postScriptName": "Inter-Medium"
+  },
+  "cssFontWeight": "500",
+  "cssFontStyle": "normal"
+}

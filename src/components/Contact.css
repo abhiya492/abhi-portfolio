@@ -126,3 +126,276 @@
     border: 0;
   }
   
+  /* Focus effects for form inputs */
+  input:focus, textarea:focus {
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Hover effects for social links */
+  .social-item:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.2);
+  }
+  
+  /* Certification items animation */
+  .certification-item {
+    transition: all 0.3s ease;
+  }
+  
+  .certification-item:hover .cert-dot {
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.7;
+    }
+  }
+  
+  /* Floating animation for particles */
+  .particle {
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.5;
+  }
+  
+  /* Input label animation */
+  .form-label {
+    transition: all 0.3s ease;
+  }
+  
+  .form-label.active {
+    color: #3b82f6;
+    transform: translateY(-2px);
+  }
+  
+  /* Form success message animation */
+  .success-message {
+    animation: slideIn 0.5s ease-out forwards;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Form field autofill styling */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(31, 41, 55, 0.8) inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .contact-form {
+      padding: 1.5rem;
+    }
+    
+    .contact-info {
+      padding: 1.5rem;
+    }
+    
+    .contact-info-item {
+      margin-bottom: 1.25rem;
+    }
+    
+    .social-links {
+      justify-content: center;
+    }
+  }
+  
+  /* Enhanced animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px) scale(1.05);
+    }
+  }
+  
+  .particle {
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.5;
+    filter: blur(10px);
+    will-change: transform, opacity;
+  }
+  
+  /* Add more visual depth to particles */
+  .particle:nth-child(1) {
+    animation-duration: 7s;
+    animation-delay: 0.2s;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, rgba(59, 130, 246, 0.1) 70%);
+  }
+  
+  .particle:nth-child(2) {
+    animation-duration: 9s;
+    animation-delay: 0.5s;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.5) 0%, rgba(139, 92, 246, 0.1) 70%);
+  }
+  
+  .particle:nth-child(3) {
+    animation-duration: 8s;
+    animation-delay: 0.7s;
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.5) 0%, rgba(79, 70, 229, 0.1) 70%);
+  }
+  
+  .particle:nth-child(4) {
+    animation-duration: 10s;
+    animation-delay: 1s;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.5) 0%, rgba(16, 185, 129, 0.1) 70%);
+  }
+  
+  /* Enhanced form styling */
+  #contact .glass {
+    backdrop-filter: blur(20px);
+    background: rgba(15, 15, 15, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #contact .glass:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+      0 35px 60px -15px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  }
+  
+  /* Improved input field focus states */
+  #contact input:focus,
+  #contact textarea:focus {
+    box-shadow: 
+      0 0 0 2px rgba(59, 130, 246, 0.5),
+      0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px) scale(1.01);
+  }
+  
+  /* Social icons with improved hover effects */
+  .social-container {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-item {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform, background-color;
+  }
+  
+  .social-item:hover {
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+  }
+  
+  /* Loading button animation */
+  @keyframes gradient-move {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  button[type="submit"]:not(:disabled) {
+    background-size: 200% 200%;
+    animation: gradient-move 3s ease infinite;
+  }
+  
+  /* Text gradient animation */
+  .text-gradient {
+    background-size: 200% 200%;
+    animation: gradient-move 4s ease infinite;
+  }
+  
+  /* Add 3D rotation on card hover */
+  .info-item {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .info-item:hover {
+    transform: translateZ(10px) rotateX(2deg);
+  }
+  
+  /* Enhanced certification items */
+  .certification-item {
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .certification-item .text-blue-400 {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+  
+  .certification-item:hover .text-blue-400 {
+    transform: translateY(-50%) scale(1.5);
+    color: #3b82f6;
+  }
+  
+  /* Form error state stylings */
+  .form-error input,
+  .form-error textarea {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 1px #ef4444;
+  }
+  
+  .form-error-message {
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+  
+  /* Better text selection colors */
+  ::selection {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: white;
+  }
+  
+  /* Responsive improvements */
+  @media (max-width: 768px) {
+    .contact-form, .contact-info {
+      padding: 1.25rem;
+    }
+    
+    .particle {
+      display: none;
+    }
+    
+    .glass {
+      backdrop-filter: blur(10px);
+    }
+    
+    .contact-title {
+      font-size: 1.75rem;
+    }
+  }
+  

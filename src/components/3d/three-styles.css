@@ -1,0 +1,245 @@
+/* Styles for 3D components and scenes */
+
+/* Section transitions */
+.three-section {
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.three-section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Loading effects */
+.loader-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin: 0 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.loader-dot:nth-child(1) {
+  animation-delay: 0s;
+  background-color: #4285F4;
+}
+
+.loader-dot:nth-child(2) {
+  animation-delay: 0.3s;
+  background-color: #DB4437;
+}
+
+.loader-dot:nth-child(3) {
+  animation-delay: 0.6s;
+  background-color: #0F9D58;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Canvas container for better mobile support */
+.three-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #050505;
+}
+
+.three-canvas-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  touch-action: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .three-section {
+    margin: 10px 0;
+  }
+  
+  .three-overlay-text {
+    bottom: 10px;
+    left: 10px;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* 3D mode toggle button */
+.three-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4285F4, #0F9D58);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.three-mode-toggle:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.three-mode-toggle .icon {
+  margin-right: 6px;
+  font-size: 16px;
+}
+
+/* Overlay content styles */
+.three-overlay {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.three-overlay .interactive {
+  pointer-events: auto;
+}
+
+/* Skill badges */
+.skill-badge {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 50px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.skill-badge:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.skill-badge .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  object-fit: contain;
+}
+
+/* Info cards */
+.three-info-card {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 16px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+}
+
+.three-info-card h3 {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.three-info-card p {
+  font-size: 14px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Progress indicators */
+.three-progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.three-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.5s ease-out;
+}
+
+/* Loading overlay */
+.three-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.three-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: #3b82f6;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Interactive elements */
+.three-interactive {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.three-interactive:hover {
+  transform: scale(1.05);
+}
+
+/* Overlay text for 3D sections */
+.three-overlay-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 5;
+} 

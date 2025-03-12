@@ -1,0 +1,7 @@
+Place font files here:
+- inter-bold.json
+- inter-bold.woff
+- inter-medium.woff
+
+You can convert fonts to JSON format using tools like facetype.js:
+https://gero3.github.io/facetype.js/ 
