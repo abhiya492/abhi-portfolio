@@ -48,7 +48,7 @@ Follow these simple steps to set up the project:
 
 ## 🌐 Usage
 
-1. Open your browser and go to: `https://abhi-project-portfolio.netlify.app/`
+1. Open your browser and go to: `[https://abhi-project-portfolio.netlify.app/]`
 
 2. Explore the following sections:
    - **Home**: Introduction and welcome.
@@ -93,7 +93,7 @@ This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE
 
 Have questions or suggestions? Reach out to me:
 
-📧 **Email**: abhishek@example.com  
+📧 **Email**: singh.421.aspabhiya@gmail.com  
 🐙 **GitHub**: [abhiya492](https://github.com/abhiya492)  
 💼 **LinkedIn**: [Abhishek Singh](https://www.linkedin.com/in/abhishek-singh-1604b9221)
 
