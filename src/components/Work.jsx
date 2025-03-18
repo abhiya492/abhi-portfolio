@@ -13,8 +13,8 @@ const projects = [
     description: 'A scalable chat application with real-time messaging, user authentication, and room management features.',
     image: '/images/project-4.jpg',
     tags: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Redux'],
-    demoLink: 'https://chat-app-demo.netlify.app/',
-    githubLink: 'https://github.com/abhiya492/chat-app',
+    demoLink: 'https://chat-app-complete.onrender.com/',
+    githubLink: 'https://github.com/abhiya492/Chat-app-complete',
     category: 'Web Application',
     featured: true
   },
@@ -25,7 +25,7 @@ const projects = [
     image: '/images/project-5.jpg.png',
     tags: ['Next.js', 'Express', 'PostgreSQL', 'Stripe', 'TypeScript'],
     demoLink: 'https://ticket-marketplace.vercel.app/',
-    githubLink: 'https://github.com/abhiya492/ticket-marketplace',
+    githubLink: 'https://github.com/abhiya492/ticket-saas-app',
     category: 'Full-Stack',
     featured: true
   },
