@@ -60,7 +60,7 @@ const Navbar = ({ toggle3D, setToggle3D }) => {
     return (
     <nav 
       ref={navRef}
-      className={`fixed w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         scrolled 
           ? 'py-2 navbar-glass' 
           : 'py-4 bg-transparent'
